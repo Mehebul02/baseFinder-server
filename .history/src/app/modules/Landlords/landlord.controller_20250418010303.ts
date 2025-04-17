@@ -78,7 +78,6 @@ const createRentalHouse = catchAsync(async (req: Request, res: Response) => {
  export const RentalHouseController = {
     createRentalHouse,
     getAllRentalHouses,
-    updateRentalHouse,
-    deleteRentalHouse
+    updateRentalHouse
   
   };

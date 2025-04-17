@@ -6,20 +6,9 @@ import AppError from "../../errors/appError";
 
 
 const createRentalHouse = async (payload: IRentalHouse) => {
-    const isAlreadyExist = await RentalHouseModel.findOne({
-      location: payload.location,
-      landlordId: payload.landlordId,
-      description: payload.description,
-    });
-  
-    if (isAlreadyExist) {
-      throw new AppError(409, 'This rental house already exists.');
-    }
-  
     const newHouse = await RentalHouseModel.create(payload);
     return newHouse;
-  };
-  
+  }
 
   const getAllRentalHouses = async (): Promise<IRentalHouse[]> => {
     const houses = await RentalHouseModel.find().populate('landlordId');
@@ -41,10 +30,9 @@ const updateRentalHouse = async (
 
   const deleteRentalHouse = async (
     id: string,
- 
+    authUser: IJwtPayload
   ) => {
-    const result = await RentalHouseModel.findByIdAndDelete(id);
-    return result;
+   
   };
 //   const deleteRentalHouse = async (
 //     id: string,

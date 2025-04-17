@@ -50,14 +50,20 @@ const createRentalHouse = catchAsync(async (req: Request, res: Response) => {
     const result = await RentalHouseService.deleteRentalHouse(id);
   
     sendResponse(res, {
-      statusCode: StatusCodes.OK,
+      statusCode: httpStatus.OK,
       success: true,
       message: 'Rental house deleted successfully!',
       data: result,
     });
   });
   
-
+  export const RentalHouseController = {
+    createRentalHouse,
+    getAllRentalHouses,
+    getRentalHouseById,
+    updateRentalHouse,
+    deleteRentalHouse,
+  };
   
 //   const deleteRentalHouse = catchAsync(async (req: Request, res: Response) => {
 //     const { id } = req.params;
@@ -78,7 +84,6 @@ const createRentalHouse = catchAsync(async (req: Request, res: Response) => {
  export const RentalHouseController = {
     createRentalHouse,
     getAllRentalHouses,
-    updateRentalHouse,
-    deleteRentalHouse
+    updateRentalHouse
   
   };

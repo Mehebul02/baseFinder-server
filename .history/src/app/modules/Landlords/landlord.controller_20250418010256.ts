@@ -50,7 +50,7 @@ const createRentalHouse = catchAsync(async (req: Request, res: Response) => {
     const result = await RentalHouseService.deleteRentalHouse(id);
   
     sendResponse(res, {
-      statusCode: StatusCodes.OK,
+      statusCode: httpStatus.OK,
       success: true,
       message: 'Rental house deleted successfully!',
       data: result,
@@ -78,7 +78,6 @@ const createRentalHouse = catchAsync(async (req: Request, res: Response) => {
  export const RentalHouseController = {
     createRentalHouse,
     getAllRentalHouses,
-    updateRentalHouse,
-    deleteRentalHouse
+    updateRentalHouse
   
   };

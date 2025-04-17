@@ -79,6 +79,6 @@ const createRentalHouse = catchAsync(async (req: Request, res: Response) => {
     createRentalHouse,
     getAllRentalHouses,
     updateRentalHouse,
-    deleteRentalHouse
+    
   
   };

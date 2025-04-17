@@ -10,7 +10,7 @@ const router = Router()
 router.post('/',validateRequest(RentalHouseValidation.rentalHouseValidationSchema),RentalHouseController.createRentalHouse)
 router.get('/',RentalHouseController.getAllRentalHouses)
 router.put('/:id',RentalHouseController.updateRentalHouse)
-router.delete('/:id',RentalHouseController.deleteRentalHouse)
+router.put('/:id',RentalHouseController.)
 
 
 export const RentalHouseRoutes = router

@@ -47,7 +47,9 @@ const createRentalHouse = catchAsync(async (req: Request, res: Response) => {
 
   const deleteRentalHouse = catchAsync(async (req: Request, res: Response) => {
     const { id } = req.params;
-    const result = await RentalHouseService.deleteRentalHouse(id);
+    const authUser = req.user as IJwtPayload;
+  
+    const result = await deleteRentalHouse(id, authUser);
   
     sendResponse(res, {
       statusCode: StatusCodes.OK,
@@ -56,8 +58,6 @@ const createRentalHouse = catchAsync(async (req: Request, res: Response) => {
       data: result,
     });
   });
-  
-
   
 //   const deleteRentalHouse = catchAsync(async (req: Request, res: Response) => {
 //     const { id } = req.params;
@@ -78,7 +78,6 @@ const createRentalHouse = catchAsync(async (req: Request, res: Response) => {
  export const RentalHouseController = {
     createRentalHouse,
     getAllRentalHouses,
-    updateRentalHouse,
-    deleteRentalHouse
+    updateRentalHouse
   
   };

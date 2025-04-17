@@ -6,20 +6,9 @@ import AppError from "../../errors/appError";
 
 
 const createRentalHouse = async (payload: IRentalHouse) => {
-    const isAlreadyExist = await RentalHouseModel.findOne({
-      location: payload.location,
-      landlordId: payload.landlordId,
-      description: payload.description,
-    });
-  
-    if (isAlreadyExist) {
-      throw new AppError(409, 'This rental house already exists.');
-    }
-  
     const newHouse = await RentalHouseModel.create(payload);
     return newHouse;
-  };
-  
+  }
 
   const getAllRentalHouses = async (): Promise<IRentalHouse[]> => {
     const houses = await RentalHouseModel.find().populate('landlordId');
@@ -41,36 +30,11 @@ const updateRentalHouse = async (
 
   const deleteRentalHouse = async (
     id: string,
- 
+    authUser: IJwtPayload
   ) => {
     const result = await RentalHouseModel.findByIdAndDelete(id);
     return result;
   };
-//   const deleteRentalHouse = async (
-//     id: string,
-//     authUser: IJwtPayload
-//   ) => {
-//     const rentalHouse = await RentalHouseModel.findById(id);
-//     if (!rentalHouse) {
-//       throw new AppError(StatusCodes.NOT_FOUND, 'Rental house not found!');
-//     }
-  
-//     // Check permission: only landlords who created the listing or admins can delete
-//     if (
-//       authUser.role === UserRole.LANDLORD &&
-//       rentalHouse.landlordId.toString() !== authUser.userId
-//     ) {
-//       throw new AppError(
-//         StatusCodes.FORBIDDEN,
-//         'You are not allowed to delete this rental house!'
-//       );
-//     }
-  
-//     // Optional: You can check if the house is linked to any active rentals/requests/etc.
-  
-//     const deletedHouse = await RentalHouseModel.findByIdAndDelete(id);
-//     return deletedHouse;
-//   };
   
 
   export const RentalHouseService = {
