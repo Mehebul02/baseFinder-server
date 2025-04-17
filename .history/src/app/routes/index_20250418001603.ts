@@ -11,7 +11,7 @@ const moduleRoutes = [
    },
    {
       path:'/landlords/listings',
-      route:RentalHouseRoutes,
+      router:RentalHouseRoutes
    }
    
 ];

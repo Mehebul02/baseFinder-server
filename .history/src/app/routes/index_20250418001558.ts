@@ -1,6 +1,5 @@
 import { Router } from "express";
 import { UserRoutes } from "../modules/user/user.routes";
-import { RentalHouseRoutes } from "../modules/Landlords/landlord.routes";
 
 const router = Router();
 
@@ -11,7 +10,7 @@ const moduleRoutes = [
    },
    {
       path:'/landlords/listings',
-      route:RentalHouseRoutes,
+      router:Re
    }
    
 ];

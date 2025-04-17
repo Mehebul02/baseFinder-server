@@ -1,0 +1,5 @@
+
+
+
+
+const rentalHouseSchema = new sc
