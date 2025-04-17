@@ -13,22 +13,8 @@ const createRentalHouse = async (payload: IRentalHouse) => {
     return houses;
   };
 
-
-  // Update Rental House by ID
-const updateRentalHouse = async (
-    id: string,
-    payload: Partial<IRentalHouse>
-  ): Promise<IRentalHouse | null> => {
-    const updatedHouse = await RentalHouseModel.findByIdAndUpdate(id, payload, {
-      new: true,
-    });
-    return updatedHouse;
-  };
-  
-
   export const RentalHouseService = {
     createRentalHouse,
-    getAllRentalHouses,
-    updateRentalHouse
+    getAllRentalHouses
    
   };

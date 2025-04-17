@@ -28,7 +28,6 @@ const updateRentalHouse = async (
 
   export const RentalHouseService = {
     createRentalHouse,
-    getAllRentalHouses,
-    updateRentalHouse
+    getAllRentalHouses
    
   };

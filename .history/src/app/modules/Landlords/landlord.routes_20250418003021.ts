@@ -8,8 +8,7 @@ import { RentalHouseController } from "./landlord.controller";
 const router = Router()
 
 router.post('/',validateRequest(RentalHouseValidation.rentalHouseValidationSchema),RentalHouseController.createRentalHouse)
-router.get('/',RentalHouseController.getAllRentalHouses)
-router.put('/:id',RentalHouseController.updateRentalHouse)
+router.get('/',validateRequest(RentalHouseValidation.rentalHouseValidationSchema),RentalHouseController.createRentalHouse)
 
 
 export const RentalHouseRoutes = router

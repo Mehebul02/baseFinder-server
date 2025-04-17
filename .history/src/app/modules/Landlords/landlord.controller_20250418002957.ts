@@ -31,24 +31,9 @@ const createRentalHouse = catchAsync(async (req: Request, res: Response) => {
       data: result,
     });
   });
-
-  const updateRentalHouse = catchAsync(async (req: Request, res: Response) => {
-    const { id } = req.params;
-    const result = await RentalHouseService.updateRentalHouse(id, req.body);
-  
-    sendResponse(res, {
-      statusCode: StatusCodes.OK,
-      success: true,
-      message: 'Rental house updated successfully!',
-      data: result,
-    });
-  });
-  
   
 
  export const RentalHouseController = {
     createRentalHouse,
-    getAllRentalHouses,
-    updateRentalHouse
   
   };

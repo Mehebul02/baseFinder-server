@@ -11,7 +11,7 @@ export interface IRentalHouse {
   numberOfBathrooms?: number | null | undefined;
   images: string[];
   landlordId: Types.ObjectId;
-  availableFrom?: Date | NativeDate | null | undefined;
+  availableFrom?: Date | ;
   isFurnished?: boolean;
   createdAt?: Date;
   updatedAt?: Date;

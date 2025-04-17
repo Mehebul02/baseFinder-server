@@ -37,7 +37,7 @@ const createRentalHouse = catchAsync(async (req: Request, res: Response) => {
     const result = await RentalHouseService.updateRentalHouse(id, req.body);
   
     sendResponse(res, {
-      statusCode: StatusCodes.OK,
+      statusCode: httpStatus.OK,
       success: true,
       message: 'Rental house updated successfully!',
       data: result,
