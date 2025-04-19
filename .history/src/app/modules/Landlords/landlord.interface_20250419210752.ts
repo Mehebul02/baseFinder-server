@@ -2,7 +2,6 @@
 
 
 import { Types } from 'mongoose';
-import { UserRole } from '../user/user.interface';
 
 export interface IRentalHouse {
   location: string;
@@ -22,6 +21,8 @@ export interface IJwtPayload {
     userId: string;
     name: string;
     email: string;
+    hasShop: boolean;
     role: UserRole;
+    isActive: boolean;
   }
   
