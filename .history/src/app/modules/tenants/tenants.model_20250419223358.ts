@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import { Schema } from "mongoose";
 import { ref } from "process";
 
 
@@ -28,17 +28,5 @@ const rentalRequestSchema = new Schema({
         enum: ['unpaid', 'paid'],
         default: 'unpaid',
      },
-     message: {
-        type: String,
-        default: '', // tenant can add a message while requesting
-     },
-     requestDate: {
-        type: Date,
-        default: Date.now,
-     },
 
-},{
-    timestamps:true
 })
-
-export const RentalRequestHouseModel = model('RentalRequest', rentalRequestSchema);

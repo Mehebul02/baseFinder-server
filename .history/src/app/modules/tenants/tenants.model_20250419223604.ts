@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import { Schema } from "mongoose";
 import { ref } from "process";
 
 
@@ -38,7 +38,5 @@ const rentalRequestSchema = new Schema({
      },
 
 },{
-    timestamps:true
+    
 })
-
-export const RentalRequestHouseModel = model('RentalRequest', rentalRequestSchema);

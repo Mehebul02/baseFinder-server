@@ -41,4 +41,6 @@ const rentalRequestSchema = new Schema({
     timestamps:true
 })
 
-export const RentalRequestHouseModel = model('RentalRequest', rentalRequestSchema);
+export default mongoos.model('RentalRequest', rentalRequestSchema);
+
+export const RentalRequestHouseModel = model('RentalRequest', rentalHouseSchema);
