@@ -7,9 +7,9 @@ export interface IRentalRequest {
    _id?: Types.ObjectId;
    house: Types.ObjectId;
    tenant: Types.ObjectId; 
-   status?: RentalRequestStatus; 
-   landlordPhoneNumber?: string | null; 
-   paymentStatus?: PaymentStatus; 
+   status?: RentalRequestStatus; // default: pending
+   landlordPhoneNumber?: string | null; // required if approved
+   paymentStatus?: PaymentStatus; // default: unpaid
    message?: string;
    requestDate?: Date;
    createdAt?: Date;

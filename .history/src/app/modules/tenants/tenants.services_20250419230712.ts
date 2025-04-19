@@ -24,33 +24,32 @@ const getTenantRequests = async () => {
     return result
 }
 
-// const updateRequestStatus = async(id:string,status:RentalRequestStatus, landlordPhoneNumber?: string)=>{
-//     const request = await RentalRequestHouseModel.findById(id)
+const updateRequestStatus = async(id:string,status:RentalRequestStatus, landlordPhoneNumber?: string)=>{
+    const request = await RentalRequestHouseModel.findById(id)
 
-//     if(!request){
-//         throw new AppError(StatusCodes.NOT_FOUND, 'Rental request not found');
-//     }
-//     // if(request.status !=='pending'){
-//     //     throw new AppError(StatusCodes.BAD_REQUEST, "Rental request is already processed")
-//     // }
-//    // Step 3: Update status
-//    request.status = status;
+    if(!request){
+        throw new AppError(StatusCodes.NOT_FOUND, 'Rental request not found');
+    }
+    // if(request.status !=='pending'){
+    //     throw new AppError(StatusCodes.BAD_REQUEST, "Rental request is already processed")
+    // }
+    request.status = status;
+    if (status === 'approved') {
+        if (status === 'approved' && !landlordPhoneNumber) {
+           throw new AppError(StatusCodes.BAD_REQUEST, 'Phone number is required when approved');
+        }
+        request.landlordPhoneNumber = landlordPhoneNumber || '';
+     } else {
+        request.landlordPhoneNumber = null ;
+     }
 
-//    // Step 4: If approved, set landlord phone number
-//    if (status === 'approved') {
-//       if (!phoneNumber) {
-//          throw new AppError(StatusCodes.BAD_REQUEST, 'Phone number is required when approved');
-//       }
-//       request.landlordPhoneNumber = phoneNumber;
-//    }
 
-
-// }
+}
 
 
 export const RentalRequestService = {
     createRentalRequest,
-    getTenantRequests,
+    // getTenantRequests,
     // updateRequestStatus,
     // updatePaymentStatus,
 };

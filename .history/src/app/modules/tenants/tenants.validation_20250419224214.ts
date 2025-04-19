@@ -16,23 +16,23 @@ export const createRentalRequestZodSchema = z.object({
 });
 
 
-// export const updateRentalRequestStatusZodSchema = z.object({
-//     body: z.object({
-//        status: z.enum(['approved', 'rejected']),
-//        landlordPhoneNumber: z
-//           .string()
-//           .regex(/^01[3-9]\d{8}$/, 'Invalid Bangladeshi phone number')
-//           .optional()
-//           .refine((val, ctx) => {
-//              if (ctx?.parent?.status === 'approved' && !val) {
-//                 return false;
-//              }
-//              return true;
-//           }, {
-//              message: 'Phone number is required when request is approved',
-//           }),
-//     }),
-//  });
+export const updateRentalRequestStatusZodSchema = z.object({
+    body: z.object({
+       status: z.enum(['approved', 'rejected']),
+       landlordPhoneNumber: z
+          .string()
+          .regex(/^01[3-9]\d{8}$/, 'Invalid Bangladeshi phone number')
+          .optional()
+          .refine((val, ctx) => {
+             if (ctx?.parent?.status === 'approved' && !val) {
+                return false;
+             }
+             return true;
+          }, {
+             message: 'Phone number is required when request is approved',
+          }),
+    }),
+ });
  
  export const updatePaymentStatusZodSchema = z.object({
     body: z.object({

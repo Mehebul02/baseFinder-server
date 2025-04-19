@@ -50,7 +50,7 @@ const getTenantRequests = async () => {
 
 export const RentalRequestService = {
     createRentalRequest,
-    getTenantRequests,
+    // getTenantRequests,
     // updateRequestStatus,
     // updatePaymentStatus,
 };

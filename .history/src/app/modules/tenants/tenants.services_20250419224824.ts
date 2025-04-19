@@ -1,0 +1,5 @@
+import { IRentalRequest } from "./tenants.interface";
+
+
+
+const createRentalRequest  =async (payload:IRentalRequest)
